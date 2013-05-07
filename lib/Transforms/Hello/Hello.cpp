@@ -47,8 +47,11 @@ namespace {
 
     virtual bool runOnFunction(Function &F) {
       ++HelloCounter;
-      errs() << "Hello: ";
+      errs() << "Hello2: ";
       errs().write_escaped(F.getName()) << '\n';
+      // Writing the return type of this function
+      F.getReturnType()->print(errs());
+      errs() << "\n";
       return false;
     }
 
